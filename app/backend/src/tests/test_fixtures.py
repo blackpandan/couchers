@@ -21,6 +21,7 @@ from couchers.servicers.conversations import Conversations
 from couchers.servicers.jail import Jail
 from couchers.servicers.media import Media, get_media_auth_interceptor
 from couchers.servicers.requests import Requests
+from couchers.utils import create_coordinate
 from pb import (
     api_pb2_grpc,
     auth_pb2,
@@ -73,6 +74,8 @@ def _raw_generate_user(session, username, jailed):
         countries_lived="Wonderland",
         # you need to make sure to update this logic to make sure the user is jailed/not on request
         accepted_tos=0 if jailed else 1,
+        geom=None if jailed else create_coordinate(40.7108, -73.9740),
+        geom_radius=None if jailed else 100,
     )
 
     session.add(user)
