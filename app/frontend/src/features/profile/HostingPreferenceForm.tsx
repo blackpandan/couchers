@@ -51,9 +51,6 @@ const useStyles = makeStyles({
     marginBottom: theme.spacing(3),
   },
   form: {
-    "& h2": {
-      margin: 0,
-    },
     marginBottom: theme.spacing(2),
   },
   formControl: {
